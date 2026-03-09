@@ -1,0 +1,364 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Les Guidons du Cœur – Rouleurs Massilia</title>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Source+Sans+3:wght@300;400;600&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --rouge: #C0392B;
+      --noir: #1a1a1a;
+      --gris: #f5f5f0;
+      --blanc: #ffffff;
+      --texte: #2c2c2c;
+      --texte-leger: #666;
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      font-family: 'Source Sans 3', sans-serif;
+      color: var(--texte);
+      background: var(--blanc);
+      line-height: 1.7;
+    }
+
+    /* HEADER */
+    header {
+      background: var(--noir);
+      color: var(--blanc);
+      padding: 60px 40px;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    header::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0; bottom: 0;
+      background: repeating-linear-gradient(
+        45deg,
+        transparent,
+        transparent 40px,
+        rgba(192,57,43,0.04) 40px,
+        rgba(192,57,43,0.04) 80px
+      );
+    }
+
+    header .badge {
+      display: inline-block;
+      background: var(--rouge);
+      color: white;
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      padding: 6px 16px;
+      margin-bottom: 24px;
+    }
+
+    header h1 {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(2rem, 5vw, 3.5rem);
+      font-weight: 700;
+      line-height: 1.2;
+      margin-bottom: 16px;
+      position: relative;
+    }
+
+    header .devise {
+      font-size: 1rem;
+      font-style: italic;
+      color: rgba(255,255,255,0.6);
+      letter-spacing: 0.5px;
+      position: relative;
+    }
+
+    /* BANDE ROUGE */
+    .bande-rouge {
+      background: var(--rouge);
+      color: white;
+      text-align: center;
+      padding: 18px 40px;
+      font-size: 0.85rem;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      font-weight: 600;
+    }
+
+    /* CONTAINER */
+    .container {
+      max-width: 860px;
+      margin: 0 auto;
+      padding: 0 24px;
+    }
+
+    /* SECTIONS */
+    section {
+      padding: 64px 0;
+      border-bottom: 1px solid #e8e8e8;
+    }
+
+    section:last-of-type {
+      border-bottom: none;
+    }
+
+    .section-label {
+      font-size: 10px;
+      font-weight: 600;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      color: var(--rouge);
+      margin-bottom: 12px;
+    }
+
+    h2 {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(1.6rem, 3vw, 2.2rem);
+      font-weight: 700;
+      color: var(--noir);
+      margin-bottom: 24px;
+      line-height: 1.3;
+    }
+
+    p {
+      font-size: 1.05rem;
+      color: var(--texte);
+      margin-bottom: 16px;
+      font-weight: 300;
+    }
+
+    /* ACTIVITÉS */
+    .activites-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 20px;
+      margin-top: 32px;
+    }
+
+    .activite-card {
+      background: var(--gris);
+      padding: 28px 24px;
+      border-left: 3px solid var(--rouge);
+    }
+
+    .activite-card .icon {
+      font-size: 1.8rem;
+      margin-bottom: 12px;
+    }
+
+    .activite-card h3 {
+      font-family: 'Playfair Display', serif;
+      font-size: 1rem;
+      font-weight: 700;
+      color: var(--noir);
+      margin-bottom: 8px;
+    }
+
+    .activite-card p {
+      font-size: 0.9rem;
+      color: var(--texte-leger);
+      margin: 0;
+    }
+
+    /* FONDS */
+    .fonds-liste {
+      margin-top: 20px;
+      list-style: none;
+    }
+
+    .fonds-liste li {
+      padding: 14px 0;
+      border-bottom: 1px solid #eee;
+      display: flex;
+      align-items: flex-start;
+      gap: 14px;
+      font-weight: 300;
+      font-size: 1.05rem;
+    }
+
+    .fonds-liste li::before {
+      content: '→';
+      color: var(--rouge);
+      font-weight: 600;
+      flex-shrink: 0;
+      margin-top: 1px;
+    }
+
+    .fonds-liste li:last-child {
+      border-bottom: none;
+    }
+
+    /* INFOS LÉGALES */
+    .infos-legales {
+      background: var(--noir);
+      color: var(--blanc);
+      padding: 64px 0;
+    }
+
+    .infos-legales .container {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 40px;
+    }
+
+    .info-bloc .info-label {
+      font-size: 10px;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: var(--rouge);
+      font-weight: 600;
+      margin-bottom: 8px;
+    }
+
+    .info-bloc .info-valeur {
+      font-size: 1rem;
+      color: rgba(255,255,255,0.85);
+      font-weight: 300;
+      line-height: 1.6;
+    }
+
+    .info-bloc a {
+      color: rgba(255,255,255,0.85);
+      text-decoration: none;
+      border-bottom: 1px solid rgba(192,57,43,0.5);
+      transition: border-color 0.2s;
+    }
+
+    .info-bloc a:hover {
+      border-color: var(--rouge);
+    }
+
+    /* FOOTER */
+    footer {
+      background: #111;
+      color: rgba(255,255,255,0.3);
+      text-align: center;
+      padding: 24px;
+      font-size: 0.8rem;
+      letter-spacing: 0.5px;
+    }
+
+    @media (max-width: 600px) {
+      header { padding: 48px 24px; }
+      section { padding: 48px 0; }
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <div class="badge">Association loi 1901 — RNA W133041682</div>
+    <h1>Les Guidons du Cœur<br>Rouleurs Massilia</h1>
+    <p class="devise">« Le cœur sur la main, les mains sur le guidon. »</p>
+  </header>
+
+  <div class="bande-rouge">
+    Association à but non lucratif — Marseille, France
+  </div>
+
+  <main>
+
+    <!-- QUI SOMMES-NOUS -->
+    <section>
+      <div class="container">
+        <p class="section-label">À propos</p>
+        <h2>Qui sommes-nous ?</h2>
+        <p>Fondée en novembre 2025 à Marseille, l'association <strong>Les Guidons du Cœur – Rouleurs Massilia</strong> est une association loi 1901 déclarée sous le numéro RNA <strong>W133041682</strong>.</p>
+        <p>Nous réunissons des passionnés de moto autour de valeurs de solidarité, de partage et d'entraide. Notre conviction : mettre la route au service du cœur.</p>
+      </div>
+    </section>
+
+    <!-- MISSION -->
+    <section style="background: var(--gris);">
+      <div class="container">
+        <p class="section-label">Mission</p>
+        <h2>Notre raison d'être</h2>
+        <p>L'association a pour objet de promouvoir la solidarité, l'entraide et les valeurs humaines en faveur des <strong>personnes en situation de handicap</strong>, des <strong>orphelins</strong> et des <strong>personnes en difficulté</strong>.</p>
+        <p>Elle met en œuvre toutes actions destinées à leur apporter réconfort, sourire et espoir — en faisant de chaque kilomètre parcouru un acte de générosité.</p>
+      </div>
+    </section>
+
+    <!-- ACTIVITÉS -->
+    <section>
+      <div class="container">
+        <p class="section-label">Activités</p>
+        <h2>Ce que nous faisons</h2>
+        <p>Depuis sa création, l'association organise des actions concrètes au service des personnes vulnérables.</p>
+
+        <div class="activites-grid">
+          <div class="activite-card">
+            <div class="icon">🏍️</div>
+            <h3>Balades moto solidaires</h3>
+            <p>Sorties collectives régulières entre membres, au service de la cohésion et de la solidarité.</p>
+          </div>
+          <div class="activite-card">
+            <div class="icon">🤝</div>
+            <h3>Visites en établissements</h3>
+            <p>Centres pour personnes handicapées, orphelinats, hôpitaux — apporter présence et sourire.</p>
+          </div>
+          <div class="activite-card">
+            <div class="icon">🎁</div>
+            <h3>Collectes de dons</h3>
+            <p>Jouets, fournitures scolaires, denrées alimentaires redistribués aux personnes dans le besoin.</p>
+          </div>
+          <div class="activite-card">
+            <div class="icon">🎪</div>
+            <h3>Événements caritatifs</h3>
+            <p>Manifestations publiques et actions de soutien ouvertes à tous.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- UTILISATION DES FONDS -->
+    <section style="background: var(--gris);">
+      <div class="container">
+        <p class="section-label">Transparence financière</p>
+        <h2>Utilisation des fonds</h2>
+        <p>L'association fonctionne exclusivement sur la base du <strong>bénévolat</strong>. Aucune rémunération n'est versée aux membres dirigeants.</p>
+        <p>Les ressources proviennent des cotisations des membres et des dons reçus. Elles sont utilisées pour :</p>
+
+        <ul class="fonds-liste">
+          <li>Le financement des actions caritatives (achats de dons, organisation des visites en établissements)</li>
+          <li>Les frais de fonctionnement de l'association (assurance, communication)</li>
+          <li>Le remboursement des frais réels engagés par les membres bénévoles dans l'intérêt de l'association</li>
+        </ul>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- INFOS LÉGALES -->
+  <div class="infos-legales">
+    <div class="container">
+      <div class="info-bloc">
+        <div class="info-label">Dénomination officielle</div>
+        <div class="info-valeur">Association Les Guidons du Cœur – Rouleurs Massilia</div>
+      </div>
+      <div class="info-bloc">
+        <div class="info-label">Statut juridique</div>
+        <div class="info-valeur">Association loi 1901 à but non lucratif<br>Numéro RNA : W133041682</div>
+      </div>
+      <div class="info-bloc">
+        <div class="info-label">Siège social</div>
+        <div class="info-valeur">5 rue Jean Prunel<br>13005 Marseille, France</div>
+      </div>
+      <div class="info-bloc">
+        <div class="info-label">Contact</div>
+        <div class="info-valeur">
+          <a href="mailto:president@lesguidonsducoeurmassilia.fr">president@lesguidonsducoeurmassilia.fr</a><br>
+          <a href="https://lesguidonsducoeurmassilia.fr">lesguidonsducoeurmassilia.fr</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <footer>
+    © 2025 Association Les Guidons du Cœur – Rouleurs Massilia — Tous droits réservés
+  </footer>
+
+</body>
+</html>
